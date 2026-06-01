@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topic.md",
+                "file": "journal/round-003.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "topic"
+              "title": "round-003"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "topic.md",
+                "file": "journal/round-003.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "topic 的反向链接列表"
+              "title": "round-003 的反向链接列表"
             }
           },
           {
@@ -184,6 +184,12 @@
   },
   "active": "25c51d21e98b785f",
   "lastOpenFiles": [
+    "journal/round-002.md",
+    "journal/round-001.md",
+    "README.md",
+    "未命名.base",
+    "OPC-万人深度探讨-完整汇总.md",
+    "topic.md",
     "journal/round-076.md",
     "journal/round-029.md",
     "test.md",
@@ -193,11 +199,9 @@
     "journal/round-008.md",
     "references/angle-checklist.md",
     "summary.md",
-    "topic.md",
     "journal/round-075.md",
     "journal/round-074.md",
     "journal/round-056.md",
-    "journal/round-051.md",
-    "journal/round-001.md"
+    "journal/round-051.md"
   ]
 }
