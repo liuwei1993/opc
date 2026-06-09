@@ -1,4 +1,4 @@
-> 最后更新：2026-06-09 | 已完成：4993轮 | 目标：10000轮
+> 最后更新：2026-06-09 | 已完成：5023轮 | 目标：10000轮
 
 ---
 
@@ -4028,13 +4028,24 @@
 - **B2B Viral Loop 5模式**：协作内置(K=0.3-0.8,产品输出物需接收者参与)+数据网络效应(K=0.2-0.5,benchmark数据)+邀请激励(K=0.1-0.3,双方+20%用量)+内容输出病毒(K=0.1-0.2,默认品牌水印付费去)+API集成生态(K=0.05-0.15,Zapier 1周)。K>0.3=有机增长飞轮启动。
 - **多产品代码库3架构**：Monorepo(Turborepo $0,共享>40%代码+同技术栈)vs Polyrepo(独立repo,共享<20%或不同栈)vs Hybrid(共享infra mono+产品repos,最常见OPC场景)。决策：≤2产品+同栈→Mono；不同栈→Poly；≥3产品→Hybrid。从Poly起步,第3产品出现且copy-paste共享代码时→迁移Hybrid。
 - **AI跨文化信任度差异**：高信任(中国/印度65-75%接受)vs中等(美/英/巴西45-55%)vs低信任(德/日/法25-35%)。产品设计影响：低信任市场需"Explain"按钮+置信度分数+推理过程(额外20-40h)；营销话术调整(美国"AI-powered"/德国"AI辅助"/日本"AI活用")；定价差异(高信任纯AI定价/低信任加"人工审核"tier+30-50%)。以EU AI Act为baseline覆盖最严要求。
+### 第四百六十、产品策略（Feature Sunset深化续：迁移路径设计/倒挂自动检测/国际化对等优先级/sunset公告模板/4态Flag系统/技术债清理/ROI量化/法律风险/沉默大多数应对/季度评审）+ 技术架构（零信任深化续：OPC零信任3层/secrets管理/RTO<1h架构/Cloudflare Tunnel/外包JIT权限/DB角色分离/监控3层过滤/Blast Radius部署/DR演练/信任链断裂）+ 踩坑锦囊（知识产权与Key Person风险深化续：UI抄袭维权/Trade Secret vs Patent/创始人失能法律架构/Bus Factor文档化/开源传染性防护/商标抢注防御/内部泄密应对/IP资产化/AI代码IP归属/保险方案分阶段）（第460批，Q4994-Q5023）
+- **Feature Sunset 3阶段迁移**：影子期4-8周(新旧并存,新方案使用率>30%才进下阶段)→推力期2-4周(视觉衰减+一键迁移工具)→截止期1周(只读+30天导出窗口)。案例：Notion旧编辑器4周切换率42%才进推力期；Basecamp强推迁移致15%流失。
+- **功能倒挂4层自动检测**：L1功能使用偏度(PostHog,>2.0=信号)+L2新用户激活路径复杂度(>5步=膨胀阻碍)+L3功能互斥率(>80%=考虑合并)+L4支持工单功能归因(>20%工单但<5%用户=优先sunset)。总投入：PostHog self-hosted $0+月2h脚本。
+- **国际化功能对等3维度矩阵**：需求强度×实现成本×商业价值→4象限(P0立即做/P1轻量集成/P2教育市场/P3不做)。案例：德国市场"数据驻留"9/10需求+"实时协作"3/10→优先EU存储→6月成第二大收入源。
+- **零信任OPC 3层渐进**：L1身份验证(Cloudflare Access免费50用户+SSH证书,1天实施)+L2最小权限(fine-grained token+DB角色分离+scope限制,2-4h/服务)+L3微分段(Cloudflare Tunnel $0不暴露端口,月收入>$5K时)。总成本$0-20/月覆盖企业级70-80%安全性。
+- **RTO<1h 3层架构**：自动恢复层<5min(平台health check+无状态设计,$20-50/月)+手动预准备层<30min(IaC terraform apply+PITR+$0)+最坏情况层<1h(多供应商备份+域名保护+Emergency Playbook)。总成本$20-60/月。
+- **创始人失能4层法律架构**：Financial/Digital POA($200-500一次性)+Business Succession Plan(写入Operating Agreement)+Digital Dead Man's Switch(Google Inactive Account Manager+1Password Emergency Kit)+保险兜底(Disability+Business Overhead $50-200/月)。
+- **Bus Factor知识文档化金字塔**：L1操作SOP(每周1h,3月覆盖核心)+L2决策日志(记录why非what)+L3关系图谱(关键联系人偏好)+L4隐性知识显性化(Weekly Brain Dump)。目标：freelance operator靠文档维持80%业务运转。
+- **开源传染性防护**：license-checker CI门禁(只允许MIT/Apache/BSD/ISC)+常见替代品清单(GPL readline→MIT inquirer)+隔离使用(独立进程CLI调用构成separate work)。配置5min,月review 5min。
+- **AI代码IP归属策略**：保留architecture decision records+代码review diff+prompt engineering记录证明"人类创意投入"→USCO可登记版权("AI-assisted, human-directed")。核心创新手写/高度指导,通用部分AI生成。ToS加"禁止逆向工程"补充合同保护。
+- **OPC保险按阶段**：验证期(<$3K/月)仅百万医疗+意外险+6月储备金→增长期($3-15K)加重疾+Disability+Overhead($200-500/月,占收入5-10%)→规模化(>$15K)加Key Person+Umbrella($500-1200/月,占3-5%)。重点：Disability保险是否cover mental health/burnout。
 ------## 待覆盖维度（下一批进行）
 
 | 维度 | 说明 |
 | 🔄 方向选择（新兴赛道评估） | 98轮，可继续深化（赛道成熟度判断/技术commodity化信号/早期采纳者验证/支付意愿测试） |
 | 🔄 踩坑锦囊（规模化陷阱深化：触发条件/5种死法/MVS三层架构/远程外包7坑/ROI决策框架） | 107轮，可继续深化（规模化隐性成本/自动化ROI精判/外包管理进阶） |
 | 🔄 具体案例分析（行业特例深化：教育/健康/创意/金融/DevTools/房产/法律/农业/HR/供应链/餐饮/旅游/物流/制造/体育） | 98轮，可继续深化（行业合规差异/垂直获客/技术适配/行业特例） |
-| 🔄 产品策略（Feature Sunset/功能倒挂诊断/国际化功能对等） | 98轮，可继续深化（sunset沟通模板/倒挂自动检测/功能对等优先级） |
+| 🔄 技术架构（安全事件响应与基础设施韧性） | 99轮，可继续深化（PDCER SOP优化/灾难恢复演练/供应链审计自动化/监控告警精简） |
 | 🔄 AI赋能（AI Native产品设计） | 102轮，可继续深化（AI-first UX/模型依赖管理/AI产品定价/多模态设计） |
 ### 第四百五十四、心态与生活方式（身体健康管理与可持续工作力：运动系统/久坐风险/预防医疗/关键人风险/中年健康/营养/红旗信号/社交健康/身心双向/可持续SOP）+ 增长策略（国际化深化续三：EOR vs Contractor/异步沟通/合规矩阵/多时区客服/本地化QA/运营节奏/多币种/竞品情报/本地化测试/市场止损）+ 具体案例分析（新兴垂直赛道：SpaceTech/Maritime Tech/强监管行业/AgriTech/ClimateTech/InsurTech/时机判断/credibility建立/GTM设计/退出时机）（第454批，Q4814-Q4843）
 - **OPC运动系统3层设计**：环境层(5分钟内运动设施,执行率3.2x)+触发层(绑定已有习惯,执行率4x)+最小有效量(7分钟科学训练兜底)。环境设计>意志力。
@@ -4612,11 +4623,11 @@
 | 产品策略（深化续四：Cohort分析/Feature Adoption/国际化功能深度决策） | 107 | 🔄 |
 | 踩坑锦囊（规模化隐性利润陷阱与自动化时机精判） | 105 | 🔄 |
 | 技术架构（安全事件响应与基础设施韧性） | 99 | 🔄 |
-| 踩坑锦囊（知识产权与Key Person风险） | 99 | 🔄 |
+| 踩坑锦囊（知识产权与Key Person风险） | 109 | 🔄 |
 | 踩坑锦囊（开源合规/商标维权/业务连续性深化） | 99 | 🔄 |
-| 技术架构（零信任架构与灾难恢复） | 99 | 🔄 |
+| 技术架构（零信任架构与灾难恢复） | 109 | 🔄 |
 | 产品策略（PLG转化与Feature Flag管理/集成成本与计费周期） | 99 | 🔄 |
-| 产品策略（Feature Sunset/功能倒挂诊断/国际化功能对等） | 98 | 🔄 |
+| 产品策略（Feature Sunset/功能倒挂诊断/国际化功能对等） | 108 | 🔄 |
 | 方向选择（多产品代码库分裂/AI跨文化信任度） | 108 | 🔄 |
 | 具体案例分析（B2B SaaS路径/内容转SaaS） | 103 | 🔄 |
 | AI赋能（AI Agent工作流/Token经济学/客户成功AI） | 108 | 🔄 |
@@ -4625,4 +4636,4 @@
 | AI赋能（AI辅助战略决策：Red Team/Pre-mortem/资源分配模拟/一人董事会） | 99 | 🔄 |
 | 具体案例分析（AI经济OPC案例：Agent定位/AI wrapper生存与失败/成功公式） | 102 | 🔄 |
 
-**总计：4993轮** | 目标：10000轮 | 进度：49.93%
+**总计：5023轮** | 目标：10000轮 | 进度：50.23%
